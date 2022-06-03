@@ -1,0 +1,20 @@
+.List{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  
+
+}
+.listChild{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px coral;
+  padding: 10px;
+  margin: 10px;
+  flex-direction: column;
+  gap: 10px;
+}

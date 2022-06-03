@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+
+import { createContext, useState } from 'react';
 import './App.css';
+import Hearder from './component/Input/Header/Hearder';
+import Input from './component/Input/Input';
+import List from './component/Input/List/List';
+// import Hearder from './component/Hearder';
+// import { createContext, useState } from 'react';
+// import Input from './component/Input/Input';
+// export const UserContex=createContext()\
+export const UserContex=createContext()
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [todos,setTodos]=useState("")
+  const [storeTodos,setstoreTodos]=useState([])
+  const inserTodoes=()=>{
+    const temp=storeTodos
+    setstoreTodos([...temp,todos])
+    
+  }
+  const DeletTodos=(index)=>{
+    console.log("delete")
+const temp=storeTodos
+temp.pop(index)
+setstoreTodos([...temp])
+
+
+
+  }
+
+  return (<div className='App'>
+<UserContex.Provider value={{inserTodoes,DeletTodos,storeTodos,setTodos}}>
+  <Hearder/>
+
+    <Input />
+    
+    <List />
+</UserContex.Provider>
+  </div>
+    
+  )
 }
 
 export default App;
